@@ -6,23 +6,69 @@
  * and re-run `payload generate:types` to regenerate this file.
  */
 
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DynamicButton".
+ */
+export type DynamicButton =
+  | {
+      dynamic?: boolean | null;
+      newTab?: boolean | null;
+      label?: {
+        root: {
+          type: string;
+          children: {
+            type: string;
+            version: number;
+            [k: string]: unknown;
+          }[];
+          direction: ('ltr' | 'rtl') | null;
+          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+          indent: number;
+          version: number;
+        };
+        [k: string]: unknown;
+      } | null;
+      label_html?: string | null;
+      link?: string | null;
+      value?: ('nearestPhoneNumber' | 'regionalManagerPhoneNumber') | null;
+      id?: string | null;
+    }[]
+  | null;
+
 export interface Config {
   auth: {
     users: UserAuthOperations;
   };
   collections: {
+    pages: Page;
     users: User;
     media: Media;
+    'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
+  };
+  collectionsJoins: {};
+  collectionsSelect: {
+    pages: PagesSelect<false> | PagesSelect<true>;
+    users: UsersSelect<false> | UsersSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
+    'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
+    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
+    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
   };
   db: {
     defaultIDType: string;
   };
   globals: {};
+  globalsSelect: {};
   locale: null;
   user: User & {
     collection: 'users';
+  };
+  jobs: {
+    tasks: unknown;
+    workflows: unknown;
   };
 }
 export interface UserAuthOperations {
@@ -45,20 +91,209 @@ export interface UserAuthOperations {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
+ * via the `definition` "pages".
  */
-export interface User {
+export interface Page {
   id: string;
+  title?: string | null;
+  content?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+        | Container0Block
+        | Container1Block
+        | Container2Block
+        | Container3Block
+        | Container4Block
+        | Container5Block
+        | Container6Block
+        | Container7Block
+        | Container8Block
+        | Container9Block
+        | Container10Block
+        | Container11Block
+        | Container12Block
+        | Container13Block
+        | Container14Block
+        | Container15Block
+        | Container16Block
+        | Container17Block
+        | Container18Block
+        | Container19Block
+        | Container20Block
+        | Container21Block
+        | Container22Block
+        | Container23Block
+        | Container24Block
+        | Container25Block
+        | Container26Block
+        | Container27Block
+        | Container28Block
+        | Container29Block
+        | Container30Block
+        | Container31Block
+        | Container32Block
+        | Container33Block
+        | Container34Block
+        | Container35Block
+        | Container36Block
+        | Container37Block
+        | Container38Block
+        | Container39Block
+        | Container40Block
+        | Container41Block
+        | Container42Block
+        | Container43Block
+        | Container44Block
+        | Container45Block
+        | Container46Block
+        | Container47Block
+        | Container48Block
+        | Container49Block
+      )[]
+    | null;
   updatedAt: string;
   createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  password?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero0Block".
+ */
+export interface Hero0Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero0';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroImages".
+ */
+export interface HeroImages {
+  small?: SmallHeroImages;
+  medium?: MediumHeroImages;
+  large?: LargeHeroImages;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SmallHeroImages".
+ */
+export interface SmallHeroImages {
+  background?: (string | null) | Media;
+  icon?: (string | null) | Media;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -78,6 +313,8502 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediumHeroImages".
+ */
+export interface MediumHeroImages {
+  background?: (string | null) | Media;
+  icon?: (string | null) | Media;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LargeHeroImages".
+ */
+export interface LargeHeroImages {
+  background?: (string | null) | Media;
+  icon?: (string | null) | Media;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverlayMaxHeight".
+ */
+export interface OverlayMaxHeight {
+  small?: string | null;
+  medium?: string | null;
+  large?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlockOptions".
+ */
+export interface BlockOptions {
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('default' | 'standard' | 'inverted' | 'light' | 'dark') | null;
+  text?: ('default' | 'standard' | 'inverted' | 'light' | 'dark') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RegionFilter".
+ */
+export interface RegionFilter {
+  hideIn?:
+    | {
+        relationTo: 'pages';
+        value: string | Page;
+      }[]
+    | null;
+  showIn?:
+    | {
+        relationTo: 'pages';
+        value: string | Page;
+      }[]
+    | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TimeFilter".
+ */
+export interface TimeFilter {
+  from?: {
+    date?: string | null;
+    timezone?:
+      | (
+          | 'DST'
+          | 'U'
+          | 'HST'
+          | 'AKDT'
+          | 'PDT'
+          | 'PST'
+          | 'UMST'
+          | 'MDT'
+          | 'CAST'
+          | 'CDT'
+          | 'CCST'
+          | 'SPST'
+          | 'EST'
+          | 'EDT'
+          | 'UEDT'
+          | 'VST'
+          | 'PYT'
+          | 'ADT'
+          | 'CBST'
+          | 'SWST'
+          | 'PSST'
+          | 'NDT'
+          | 'ESAST'
+          | 'AST'
+          | 'SEST'
+          | 'GDT'
+          | 'MST'
+          | 'BST'
+          | 'CVST'
+          | 'UTC'
+          | 'GMT'
+          | 'GST'
+          | 'WEDT'
+          | 'CEDT'
+          | 'RDT'
+          | 'WCAST'
+          | 'NST'
+          | 'MEDT'
+          | 'SDT'
+          | 'EEDT'
+          | 'SAST'
+          | 'FDT'
+          | 'TDT'
+          | 'JDT'
+          | 'LST'
+          | 'JST'
+          | 'KST'
+          | 'EAST'
+          | 'MSK'
+          | 'SAMT'
+          | 'IDT'
+          | 'GET'
+          | 'CST'
+          | 'WAST'
+          | 'YEKT'
+          | 'PKT'
+          | 'IST'
+          | 'SLST'
+          | 'NCAST'
+          | 'NAST'
+          | 'MPST'
+          | 'TST'
+          | 'UST'
+          | 'NAEST'
+          | 'ACST'
+          | 'AEST'
+          | 'WPST'
+          | 'YST'
+          | 'CPST'
+          | 'NZST'
+          | 'FST'
+          | 'KDT'
+          | 'SST'
+        )
+      | null;
+  };
+  to?: {
+    date?: string | null;
+    timezone?:
+      | (
+          | 'DST'
+          | 'U'
+          | 'HST'
+          | 'AKDT'
+          | 'PDT'
+          | 'PST'
+          | 'UMST'
+          | 'MDT'
+          | 'CAST'
+          | 'CDT'
+          | 'CCST'
+          | 'SPST'
+          | 'EST'
+          | 'EDT'
+          | 'UEDT'
+          | 'VST'
+          | 'PYT'
+          | 'ADT'
+          | 'CBST'
+          | 'SWST'
+          | 'PSST'
+          | 'NDT'
+          | 'ESAST'
+          | 'AST'
+          | 'SEST'
+          | 'GDT'
+          | 'MST'
+          | 'BST'
+          | 'CVST'
+          | 'UTC'
+          | 'GMT'
+          | 'GST'
+          | 'WEDT'
+          | 'CEDT'
+          | 'RDT'
+          | 'WCAST'
+          | 'NST'
+          | 'MEDT'
+          | 'SDT'
+          | 'EEDT'
+          | 'SAST'
+          | 'FDT'
+          | 'TDT'
+          | 'JDT'
+          | 'LST'
+          | 'JST'
+          | 'KST'
+          | 'EAST'
+          | 'MSK'
+          | 'SAMT'
+          | 'IDT'
+          | 'GET'
+          | 'CST'
+          | 'WAST'
+          | 'YEKT'
+          | 'PKT'
+          | 'IST'
+          | 'SLST'
+          | 'NCAST'
+          | 'NAST'
+          | 'MPST'
+          | 'TST'
+          | 'UST'
+          | 'NAEST'
+          | 'ACST'
+          | 'AEST'
+          | 'WPST'
+          | 'YST'
+          | 'CPST'
+          | 'NZST'
+          | 'FST'
+          | 'KDT'
+          | 'SST'
+        )
+      | null;
+  };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero1Block".
+ */
+export interface Hero1Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero1';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero2Block".
+ */
+export interface Hero2Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero2';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero3Block".
+ */
+export interface Hero3Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero3';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero4Block".
+ */
+export interface Hero4Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero4';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero5Block".
+ */
+export interface Hero5Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero5';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero6Block".
+ */
+export interface Hero6Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero6';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero7Block".
+ */
+export interface Hero7Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero7';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero8Block".
+ */
+export interface Hero8Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero8';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero9Block".
+ */
+export interface Hero9Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero9';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero10Block".
+ */
+export interface Hero10Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero10';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero11Block".
+ */
+export interface Hero11Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero11';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero12Block".
+ */
+export interface Hero12Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero12';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero13Block".
+ */
+export interface Hero13Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero13';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero14Block".
+ */
+export interface Hero14Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero14';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero15Block".
+ */
+export interface Hero15Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero15';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero16Block".
+ */
+export interface Hero16Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero16';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero17Block".
+ */
+export interface Hero17Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero17';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero18Block".
+ */
+export interface Hero18Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero18';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero19Block".
+ */
+export interface Hero19Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero19';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero20Block".
+ */
+export interface Hero20Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero20';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero21Block".
+ */
+export interface Hero21Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero21';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero22Block".
+ */
+export interface Hero22Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero22';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero23Block".
+ */
+export interface Hero23Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero23';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero24Block".
+ */
+export interface Hero24Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero24';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero25Block".
+ */
+export interface Hero25Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero25';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero26Block".
+ */
+export interface Hero26Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero26';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero27Block".
+ */
+export interface Hero27Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero27';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero28Block".
+ */
+export interface Hero28Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero28';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero29Block".
+ */
+export interface Hero29Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero29';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero30Block".
+ */
+export interface Hero30Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero30';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero31Block".
+ */
+export interface Hero31Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero31';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero32Block".
+ */
+export interface Hero32Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero32';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero33Block".
+ */
+export interface Hero33Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero33';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero34Block".
+ */
+export interface Hero34Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero34';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero35Block".
+ */
+export interface Hero35Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero35';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero36Block".
+ */
+export interface Hero36Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero36';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero37Block".
+ */
+export interface Hero37Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero37';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero38Block".
+ */
+export interface Hero38Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero38';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero39Block".
+ */
+export interface Hero39Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero39';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero40Block".
+ */
+export interface Hero40Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero40';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero41Block".
+ */
+export interface Hero41Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero41';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero42Block".
+ */
+export interface Hero42Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero42';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero43Block".
+ */
+export interface Hero43Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero43';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero44Block".
+ */
+export interface Hero44Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero44';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero45Block".
+ */
+export interface Hero45Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero45';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero46Block".
+ */
+export interface Hero46Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero46';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero47Block".
+ */
+export interface Hero47Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero47';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero48Block".
+ */
+export interface Hero48Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero48';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero49Block".
+ */
+export interface Hero49Block {
+  images?: HeroImages;
+  header?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  header_html?: string | null;
+  subheader?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subheader_html?: string | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
+  buttons?: DynamicButton;
+  buttonAlignment?: ('default' | 'left' | 'center' | 'right') | null;
+  type?: ('standard' | 'glass' | 'glassPane' | 'stretch' | 'icon') | null;
+  style?: ('gradient' | 'blur' | 'glass' | 'home' | 'footer' | 'footerAskew') | null;
+  aspectRatio?: ('mini' | 'short' | 'tall') | null;
+  centerOverlay?: boolean | null;
+  overlayMaxHeight?: OverlayMaxHeight;
+  gradientDirection?: {
+    small?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    medium?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+    large?: ('l' | 'r' | 't' | 'b' | 'tl' | 'tr' | 'bl' | 'br') | null;
+  };
+  alignment: 'left' | 'right';
+  wideRounding?: ('none' | 'wide_rounded_t' | 'wide_rounded_b' | 'wide_rounded') | null;
+  rounding?: ('none' | 'top' | 'bottom' | 'rounded') | null;
+  status?: ('active' | 'inactive') | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero49';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container0Block".
+ */
+export interface Container0Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container0';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container1Block".
+ */
+export interface Container1Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container1';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container2Block".
+ */
+export interface Container2Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container2';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container3Block".
+ */
+export interface Container3Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container3';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container4Block".
+ */
+export interface Container4Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container4';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container5Block".
+ */
+export interface Container5Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container5';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container6Block".
+ */
+export interface Container6Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container6';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container7Block".
+ */
+export interface Container7Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container7';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container8Block".
+ */
+export interface Container8Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container8';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container9Block".
+ */
+export interface Container9Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container9';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container10Block".
+ */
+export interface Container10Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container10';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container11Block".
+ */
+export interface Container11Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container11';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container12Block".
+ */
+export interface Container12Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container12';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container13Block".
+ */
+export interface Container13Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container13';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container14Block".
+ */
+export interface Container14Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container14';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container15Block".
+ */
+export interface Container15Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container15';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container16Block".
+ */
+export interface Container16Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container16';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container17Block".
+ */
+export interface Container17Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container17';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container18Block".
+ */
+export interface Container18Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container18';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container19Block".
+ */
+export interface Container19Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container19';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container20Block".
+ */
+export interface Container20Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container20';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container21Block".
+ */
+export interface Container21Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container21';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container22Block".
+ */
+export interface Container22Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container22';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container23Block".
+ */
+export interface Container23Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container23';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container24Block".
+ */
+export interface Container24Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container24';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container25Block".
+ */
+export interface Container25Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container25';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container26Block".
+ */
+export interface Container26Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container26';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container27Block".
+ */
+export interface Container27Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container27';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container28Block".
+ */
+export interface Container28Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container28';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container29Block".
+ */
+export interface Container29Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container29';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container30Block".
+ */
+export interface Container30Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container30';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container31Block".
+ */
+export interface Container31Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container31';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container32Block".
+ */
+export interface Container32Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container32';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container33Block".
+ */
+export interface Container33Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container33';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container34Block".
+ */
+export interface Container34Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container34';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container35Block".
+ */
+export interface Container35Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container35';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container36Block".
+ */
+export interface Container36Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container36';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container37Block".
+ */
+export interface Container37Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container37';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container38Block".
+ */
+export interface Container38Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container38';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container39Block".
+ */
+export interface Container39Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container39';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container40Block".
+ */
+export interface Container40Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container40';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container41Block".
+ */
+export interface Container41Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container41';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container42Block".
+ */
+export interface Container42Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container42';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container43Block".
+ */
+export interface Container43Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container43';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container44Block".
+ */
+export interface Container44Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container44';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container45Block".
+ */
+export interface Container45Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container45';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container46Block".
+ */
+export interface Container46Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container46';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container47Block".
+ */
+export interface Container47Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container47';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container48Block".
+ */
+export interface Container48Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container48';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container49Block".
+ */
+export interface Container49Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero0Block
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+      )[]
+    | null;
+  margin?: ('sm' | 'md' | 'lg') | null;
+  padding?: ('sm' | 'md' | 'lg') | null;
+  bg?: ('none' | 'default' | 'inverted' | 'askew' | 'askew-inverted') | null;
+  type?: ('narrow' | 'narrowChildren') | null;
+  breakout?: boolean | null;
+  fullWidth?: boolean | null;
+  showAt?: ('all' | 'sm' | 'md' | 'lg') | null;
+  hideAt?: ('none' | 'sm' | 'md' | 'lg') | null;
+  css?: string | null;
+  regionFilter?: RegionFilter;
+  time?: TimeFilter;
+  anchorId?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container49';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users".
+ */
+export interface User {
+  id: string;
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  password?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-locked-documents".
+ */
+export interface PayloadLockedDocument {
+  id: string;
+  document?:
+    | ({
+        relationTo: 'pages';
+        value: string | Page;
+      } | null)
+    | ({
+        relationTo: 'users';
+        value: string | User;
+      } | null)
+    | ({
+        relationTo: 'media';
+        value: string | Media;
+      } | null);
+  globalSlug?: string | null;
+  user: {
+    relationTo: 'users';
+    value: string | User;
+  };
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -112,6 +8843,5783 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  content?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+        Container0?: T | Container0BlockSelect<T>;
+        Container1?: T | Container1BlockSelect<T>;
+        Container2?: T | Container2BlockSelect<T>;
+        Container3?: T | Container3BlockSelect<T>;
+        Container4?: T | Container4BlockSelect<T>;
+        Container5?: T | Container5BlockSelect<T>;
+        Container6?: T | Container6BlockSelect<T>;
+        Container7?: T | Container7BlockSelect<T>;
+        Container8?: T | Container8BlockSelect<T>;
+        Container9?: T | Container9BlockSelect<T>;
+        Container10?: T | Container10BlockSelect<T>;
+        Container11?: T | Container11BlockSelect<T>;
+        Container12?: T | Container12BlockSelect<T>;
+        Container13?: T | Container13BlockSelect<T>;
+        Container14?: T | Container14BlockSelect<T>;
+        Container15?: T | Container15BlockSelect<T>;
+        Container16?: T | Container16BlockSelect<T>;
+        Container17?: T | Container17BlockSelect<T>;
+        Container18?: T | Container18BlockSelect<T>;
+        Container19?: T | Container19BlockSelect<T>;
+        Container20?: T | Container20BlockSelect<T>;
+        Container21?: T | Container21BlockSelect<T>;
+        Container22?: T | Container22BlockSelect<T>;
+        Container23?: T | Container23BlockSelect<T>;
+        Container24?: T | Container24BlockSelect<T>;
+        Container25?: T | Container25BlockSelect<T>;
+        Container26?: T | Container26BlockSelect<T>;
+        Container27?: T | Container27BlockSelect<T>;
+        Container28?: T | Container28BlockSelect<T>;
+        Container29?: T | Container29BlockSelect<T>;
+        Container30?: T | Container30BlockSelect<T>;
+        Container31?: T | Container31BlockSelect<T>;
+        Container32?: T | Container32BlockSelect<T>;
+        Container33?: T | Container33BlockSelect<T>;
+        Container34?: T | Container34BlockSelect<T>;
+        Container35?: T | Container35BlockSelect<T>;
+        Container36?: T | Container36BlockSelect<T>;
+        Container37?: T | Container37BlockSelect<T>;
+        Container38?: T | Container38BlockSelect<T>;
+        Container39?: T | Container39BlockSelect<T>;
+        Container40?: T | Container40BlockSelect<T>;
+        Container41?: T | Container41BlockSelect<T>;
+        Container42?: T | Container42BlockSelect<T>;
+        Container43?: T | Container43BlockSelect<T>;
+        Container44?: T | Container44BlockSelect<T>;
+        Container45?: T | Container45BlockSelect<T>;
+        Container46?: T | Container46BlockSelect<T>;
+        Container47?: T | Container47BlockSelect<T>;
+        Container48?: T | Container48BlockSelect<T>;
+        Container49?: T | Container49BlockSelect<T>;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero0Block_select".
+ */
+export interface Hero0BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroImages_select".
+ */
+export interface HeroImagesSelect<T extends boolean = true> {
+  small?: T | SmallHeroImagesSelect<T>;
+  medium?: T | MediumHeroImagesSelect<T>;
+  large?: T | LargeHeroImagesSelect<T>;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SmallHeroImages_select".
+ */
+export interface SmallHeroImagesSelect<T extends boolean = true> {
+  background?: T;
+  icon?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediumHeroImages_select".
+ */
+export interface MediumHeroImagesSelect<T extends boolean = true> {
+  background?: T;
+  icon?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LargeHeroImages_select".
+ */
+export interface LargeHeroImagesSelect<T extends boolean = true> {
+  background?: T;
+  icon?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DynamicButton_select".
+ */
+export interface DynamicButtonSelect<T extends boolean = true> {
+  dynamic?: T;
+  newTab?: T;
+  label?: T;
+  label_html?: T;
+  link?: T;
+  value?: T;
+  id?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverlayMaxHeight_select".
+ */
+export interface OverlayMaxHeightSelect<T extends boolean = true> {
+  small?: T;
+  medium?: T;
+  large?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlockOptions_select".
+ */
+export interface BlockOptionsSelect<T extends boolean = true> {
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  text?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RegionFilter_select".
+ */
+export interface RegionFilterSelect<T extends boolean = true> {
+  hideIn?: T;
+  showIn?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TimeFilter_select".
+ */
+export interface TimeFilterSelect<T extends boolean = true> {
+  from?:
+    | T
+    | {
+        date?: T;
+        timezone?: T;
+      };
+  to?:
+    | T
+    | {
+        date?: T;
+        timezone?: T;
+      };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero1Block_select".
+ */
+export interface Hero1BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero2Block_select".
+ */
+export interface Hero2BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero3Block_select".
+ */
+export interface Hero3BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero4Block_select".
+ */
+export interface Hero4BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero5Block_select".
+ */
+export interface Hero5BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero6Block_select".
+ */
+export interface Hero6BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero7Block_select".
+ */
+export interface Hero7BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero8Block_select".
+ */
+export interface Hero8BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero9Block_select".
+ */
+export interface Hero9BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero10Block_select".
+ */
+export interface Hero10BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero11Block_select".
+ */
+export interface Hero11BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero12Block_select".
+ */
+export interface Hero12BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero13Block_select".
+ */
+export interface Hero13BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero14Block_select".
+ */
+export interface Hero14BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero15Block_select".
+ */
+export interface Hero15BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero16Block_select".
+ */
+export interface Hero16BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero17Block_select".
+ */
+export interface Hero17BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero18Block_select".
+ */
+export interface Hero18BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero19Block_select".
+ */
+export interface Hero19BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero20Block_select".
+ */
+export interface Hero20BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero21Block_select".
+ */
+export interface Hero21BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero22Block_select".
+ */
+export interface Hero22BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero23Block_select".
+ */
+export interface Hero23BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero24Block_select".
+ */
+export interface Hero24BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero25Block_select".
+ */
+export interface Hero25BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero26Block_select".
+ */
+export interface Hero26BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero27Block_select".
+ */
+export interface Hero27BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero28Block_select".
+ */
+export interface Hero28BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero29Block_select".
+ */
+export interface Hero29BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero30Block_select".
+ */
+export interface Hero30BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero31Block_select".
+ */
+export interface Hero31BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero32Block_select".
+ */
+export interface Hero32BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero33Block_select".
+ */
+export interface Hero33BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero34Block_select".
+ */
+export interface Hero34BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero35Block_select".
+ */
+export interface Hero35BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero36Block_select".
+ */
+export interface Hero36BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero37Block_select".
+ */
+export interface Hero37BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero38Block_select".
+ */
+export interface Hero38BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero39Block_select".
+ */
+export interface Hero39BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero40Block_select".
+ */
+export interface Hero40BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero41Block_select".
+ */
+export interface Hero41BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero42Block_select".
+ */
+export interface Hero42BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero43Block_select".
+ */
+export interface Hero43BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero44Block_select".
+ */
+export interface Hero44BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero45Block_select".
+ */
+export interface Hero45BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero46Block_select".
+ */
+export interface Hero46BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero47Block_select".
+ */
+export interface Hero47BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero48Block_select".
+ */
+export interface Hero48BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero49Block_select".
+ */
+export interface Hero49BlockSelect<T extends boolean = true> {
+  images?: T | HeroImagesSelect<T>;
+  header?: T;
+  header_html?: T;
+  subheader?: T;
+  subheader_html?: T;
+  text?: T;
+  text_html?: T;
+  buttons?: T | DynamicButtonSelect<T>;
+  buttonAlignment?: T;
+  type?: T;
+  style?: T;
+  aspectRatio?: T;
+  centerOverlay?: T;
+  overlayMaxHeight?: T | OverlayMaxHeightSelect<T>;
+  gradientDirection?:
+    | T
+    | {
+        small?: T;
+        medium?: T;
+        large?: T;
+      };
+  alignment?: T;
+  wideRounding?: T;
+  rounding?: T;
+  status?: T;
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container0Block_select".
+ */
+export interface Container0BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container1Block_select".
+ */
+export interface Container1BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container2Block_select".
+ */
+export interface Container2BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container3Block_select".
+ */
+export interface Container3BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container4Block_select".
+ */
+export interface Container4BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container5Block_select".
+ */
+export interface Container5BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container6Block_select".
+ */
+export interface Container6BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container7Block_select".
+ */
+export interface Container7BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container8Block_select".
+ */
+export interface Container8BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container9Block_select".
+ */
+export interface Container9BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container10Block_select".
+ */
+export interface Container10BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container11Block_select".
+ */
+export interface Container11BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container12Block_select".
+ */
+export interface Container12BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container13Block_select".
+ */
+export interface Container13BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container14Block_select".
+ */
+export interface Container14BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container15Block_select".
+ */
+export interface Container15BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container16Block_select".
+ */
+export interface Container16BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container17Block_select".
+ */
+export interface Container17BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container18Block_select".
+ */
+export interface Container18BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container19Block_select".
+ */
+export interface Container19BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container20Block_select".
+ */
+export interface Container20BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container21Block_select".
+ */
+export interface Container21BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container22Block_select".
+ */
+export interface Container22BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container23Block_select".
+ */
+export interface Container23BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container24Block_select".
+ */
+export interface Container24BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container25Block_select".
+ */
+export interface Container25BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container26Block_select".
+ */
+export interface Container26BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container27Block_select".
+ */
+export interface Container27BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container28Block_select".
+ */
+export interface Container28BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container29Block_select".
+ */
+export interface Container29BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container30Block_select".
+ */
+export interface Container30BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container31Block_select".
+ */
+export interface Container31BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container32Block_select".
+ */
+export interface Container32BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container33Block_select".
+ */
+export interface Container33BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container34Block_select".
+ */
+export interface Container34BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container35Block_select".
+ */
+export interface Container35BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container36Block_select".
+ */
+export interface Container36BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container37Block_select".
+ */
+export interface Container37BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container38Block_select".
+ */
+export interface Container38BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container39Block_select".
+ */
+export interface Container39BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container40Block_select".
+ */
+export interface Container40BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container41Block_select".
+ */
+export interface Container41BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container42Block_select".
+ */
+export interface Container42BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container43Block_select".
+ */
+export interface Container43BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container44Block_select".
+ */
+export interface Container44BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container45Block_select".
+ */
+export interface Container45BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container46Block_select".
+ */
+export interface Container46BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container47Block_select".
+ */
+export interface Container47BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container48Block_select".
+ */
+export interface Container48BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container49Block_select".
+ */
+export interface Container49BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero0?: T | Hero0BlockSelect<T>;
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+      };
+  margin?: T;
+  padding?: T;
+  bg?: T;
+  type?: T;
+  breakout?: T;
+  fullWidth?: T;
+  showAt?: T;
+  hideAt?: T;
+  css?: T;
+  regionFilter?: T | RegionFilterSelect<T>;
+  time?: T | TimeFilterSelect<T>;
+  anchorId?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users_select".
+ */
+export interface UsersSelect<T extends boolean = true> {
+  updatedAt?: T;
+  createdAt?: T;
+  email?: T;
+  resetPasswordToken?: T;
+  resetPasswordExpiration?: T;
+  salt?: T;
+  hash?: T;
+  loginAttempts?: T;
+  lockUntil?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media_select".
+ */
+export interface MediaSelect<T extends boolean = true> {
+  alt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-locked-documents_select".
+ */
+export interface PayloadLockedDocumentsSelect<T extends boolean = true> {
+  document?: T;
+  globalSlug?: T;
+  user?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-preferences_select".
+ */
+export interface PayloadPreferencesSelect<T extends boolean = true> {
+  user?: T;
+  key?: T;
+  value?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-migrations_select".
+ */
+export interface PayloadMigrationsSelect<T extends boolean = true> {
+  name?: T;
+  batch?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
