@@ -1,6 +1,6 @@
 import { richTextField } from '@/fields/richText'
 
-import { HeroBlocks } from './Hero'
+import { generateHeroBlocks } from './Hero'
 
 import type { Block } from 'payload'
 import { blockOptions } from './blockOptions'
@@ -13,12 +13,11 @@ const Container: (index: number) => Block = (index) => ({
     {
       name: 'blocks',
       type: 'blocks',
-      blocks: HeroBlocks,
+      blocks: generateHeroBlocks(50),
     },
     blockOptions,
   ],
 })
 
-const indexedArray = Array.from({ length: 50 }).map((_, index) => index + 1)
-
-export const ContainerBlocks = indexedArray.map((_, index) => Container(index))
+export const generateContainerBlocks = (count: number) =>
+  Array.from({ length: count }).map((_, index) => Container(index + 1))

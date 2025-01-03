@@ -1,4 +1,4 @@
-import { blocks } from '@/blocks'
+import { generateBlocks } from '@/blocks'
 import { CollectionConfig } from 'payload'
 
 export const Pages: CollectionConfig = {
@@ -8,15 +8,10 @@ export const Pages: CollectionConfig = {
   },
   fields: [
     {
-      name: 'title',
-      label: 'Title',
-      type: 'text',
-    },
-    {
       name: 'content',
       label: 'Content',
       type: 'blocks',
-      blocks,
+      blocks: generateBlocks(50, 25),
     },
   ],
 }

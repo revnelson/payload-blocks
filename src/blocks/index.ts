@@ -1,1 +1,1 @@
-export { blocks } from "./blocks"
+export { generateBlocks } from './blocks'

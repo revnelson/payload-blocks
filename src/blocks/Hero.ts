@@ -359,6 +359,5 @@ const buildHero: (index: number) => Block = (index) => ({
   ],
 })
 
-const indexedArray = Array.from({ length: 50 }).map((_, index) => index + 1)
-
-export const HeroBlocks = indexedArray.map((_, index) => buildHero(index))
+export const generateHeroBlocks = (count: number) =>
+  Array.from({ length: count }).map((_, index) => buildHero(index + 1))
