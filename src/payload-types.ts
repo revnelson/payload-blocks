@@ -167,6 +167,11 @@ export interface Page {
         | Container18Block
         | Container19Block
         | Container20Block
+        | Container21Block
+        | Container22Block
+        | Container23Block
+        | Container24Block
+        | Container25Block
       )[]
     | null;
   updatedAt: string;
@@ -5601,6 +5606,406 @@ export interface Container20Block {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container21Block".
+ */
+export interface Container21Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+        | Hero50Block
+      )[]
+    | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container21';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container22Block".
+ */
+export interface Container22Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+        | Hero50Block
+      )[]
+    | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container22';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container23Block".
+ */
+export interface Container23Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+        | Hero50Block
+      )[]
+    | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container23';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container24Block".
+ */
+export interface Container24Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+        | Hero50Block
+      )[]
+    | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container24';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container25Block".
+ */
+export interface Container25Block {
+  children?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  children_html?: string | null;
+  blocks?:
+    | (
+        | Hero1Block
+        | Hero2Block
+        | Hero3Block
+        | Hero4Block
+        | Hero5Block
+        | Hero6Block
+        | Hero7Block
+        | Hero8Block
+        | Hero9Block
+        | Hero10Block
+        | Hero11Block
+        | Hero12Block
+        | Hero13Block
+        | Hero14Block
+        | Hero15Block
+        | Hero16Block
+        | Hero17Block
+        | Hero18Block
+        | Hero19Block
+        | Hero20Block
+        | Hero21Block
+        | Hero22Block
+        | Hero23Block
+        | Hero24Block
+        | Hero25Block
+        | Hero26Block
+        | Hero27Block
+        | Hero28Block
+        | Hero29Block
+        | Hero30Block
+        | Hero31Block
+        | Hero32Block
+        | Hero33Block
+        | Hero34Block
+        | Hero35Block
+        | Hero36Block
+        | Hero37Block
+        | Hero38Block
+        | Hero39Block
+        | Hero40Block
+        | Hero41Block
+        | Hero42Block
+        | Hero43Block
+        | Hero44Block
+        | Hero45Block
+        | Hero46Block
+        | Hero47Block
+        | Hero48Block
+        | Hero49Block
+        | Hero50Block
+      )[]
+    | null;
+  blockOptions?: BlockOptions;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Container25';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -5755,6 +6160,11 @@ export interface PagesSelect<T extends boolean = true> {
         Container18?: T | Container18BlockSelect<T>;
         Container19?: T | Container19BlockSelect<T>;
         Container20?: T | Container20BlockSelect<T>;
+        Container21?: T | Container21BlockSelect<T>;
+        Container22?: T | Container22BlockSelect<T>;
+        Container23?: T | Container23BlockSelect<T>;
+        Container24?: T | Container24BlockSelect<T>;
+        Container25?: T | Container25BlockSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -8770,6 +9180,331 @@ export interface Container19BlockSelect<T extends boolean = true> {
  * via the `definition` "Container20Block_select".
  */
 export interface Container20BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+        Hero50?: T | Hero50BlockSelect<T>;
+      };
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container21Block_select".
+ */
+export interface Container21BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+        Hero50?: T | Hero50BlockSelect<T>;
+      };
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container22Block_select".
+ */
+export interface Container22BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+        Hero50?: T | Hero50BlockSelect<T>;
+      };
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container23Block_select".
+ */
+export interface Container23BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+        Hero50?: T | Hero50BlockSelect<T>;
+      };
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container24Block_select".
+ */
+export interface Container24BlockSelect<T extends boolean = true> {
+  children?: T;
+  children_html?: T;
+  blocks?:
+    | T
+    | {
+        Hero1?: T | Hero1BlockSelect<T>;
+        Hero2?: T | Hero2BlockSelect<T>;
+        Hero3?: T | Hero3BlockSelect<T>;
+        Hero4?: T | Hero4BlockSelect<T>;
+        Hero5?: T | Hero5BlockSelect<T>;
+        Hero6?: T | Hero6BlockSelect<T>;
+        Hero7?: T | Hero7BlockSelect<T>;
+        Hero8?: T | Hero8BlockSelect<T>;
+        Hero9?: T | Hero9BlockSelect<T>;
+        Hero10?: T | Hero10BlockSelect<T>;
+        Hero11?: T | Hero11BlockSelect<T>;
+        Hero12?: T | Hero12BlockSelect<T>;
+        Hero13?: T | Hero13BlockSelect<T>;
+        Hero14?: T | Hero14BlockSelect<T>;
+        Hero15?: T | Hero15BlockSelect<T>;
+        Hero16?: T | Hero16BlockSelect<T>;
+        Hero17?: T | Hero17BlockSelect<T>;
+        Hero18?: T | Hero18BlockSelect<T>;
+        Hero19?: T | Hero19BlockSelect<T>;
+        Hero20?: T | Hero20BlockSelect<T>;
+        Hero21?: T | Hero21BlockSelect<T>;
+        Hero22?: T | Hero22BlockSelect<T>;
+        Hero23?: T | Hero23BlockSelect<T>;
+        Hero24?: T | Hero24BlockSelect<T>;
+        Hero25?: T | Hero25BlockSelect<T>;
+        Hero26?: T | Hero26BlockSelect<T>;
+        Hero27?: T | Hero27BlockSelect<T>;
+        Hero28?: T | Hero28BlockSelect<T>;
+        Hero29?: T | Hero29BlockSelect<T>;
+        Hero30?: T | Hero30BlockSelect<T>;
+        Hero31?: T | Hero31BlockSelect<T>;
+        Hero32?: T | Hero32BlockSelect<T>;
+        Hero33?: T | Hero33BlockSelect<T>;
+        Hero34?: T | Hero34BlockSelect<T>;
+        Hero35?: T | Hero35BlockSelect<T>;
+        Hero36?: T | Hero36BlockSelect<T>;
+        Hero37?: T | Hero37BlockSelect<T>;
+        Hero38?: T | Hero38BlockSelect<T>;
+        Hero39?: T | Hero39BlockSelect<T>;
+        Hero40?: T | Hero40BlockSelect<T>;
+        Hero41?: T | Hero41BlockSelect<T>;
+        Hero42?: T | Hero42BlockSelect<T>;
+        Hero43?: T | Hero43BlockSelect<T>;
+        Hero44?: T | Hero44BlockSelect<T>;
+        Hero45?: T | Hero45BlockSelect<T>;
+        Hero46?: T | Hero46BlockSelect<T>;
+        Hero47?: T | Hero47BlockSelect<T>;
+        Hero48?: T | Hero48BlockSelect<T>;
+        Hero49?: T | Hero49BlockSelect<T>;
+        Hero50?: T | Hero50BlockSelect<T>;
+      };
+  blockOptions?: T | BlockOptionsSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container25Block_select".
+ */
+export interface Container25BlockSelect<T extends boolean = true> {
   children?: T;
   children_html?: T;
   blocks?:
